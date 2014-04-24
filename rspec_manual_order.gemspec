@@ -1,13 +1,14 @@
-##  encoding: utf-8 --
-#lib = File.expand_path('../lib', _FILE_)
-#$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'rspec_manual_order/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'rspec_manual_order'
-  spec.version = '0.0.1'
+  spec.version = RspecManualOrder::VERSION
   spec.authors = ['Austin Putman']
-  spec.email = ['austin@omadahealth.com']
-  spec.description = %q{Rspec Manual Ordering Tool}
+  spec.email = ['hello@omadahealth.com']
+  spec.description = %q{Order your specs as you like}
   spec.summary = %q{Rspec Manual Ordering Tool}
   spec.homepage = 'https://github.com/omadahealth/rspec_manual_order'
   spec.license = 'MIT'

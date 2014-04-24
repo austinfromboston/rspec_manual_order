@@ -3,10 +3,17 @@
 # => SpacManualOrder.new("documentation_file").order(config)
 # the file should contain the output of the run you want to mimic, in documentation format
 # this is helpful for doing binary search when facing random failures due to test pollution
+require 'rspec_manual_order/recorder'
 
 class RspecManualOrder
   attr_reader :ordering
   ORDER_LAST = 9999999
+
+  def self.record(example)
+    @recorder ||= Recorder.new
+    @recorder.puts(example.example_group.metadata[:example_group][:full_description])
+    @recorder.puts(example.full_description)
+  end
 
   def initialize(filename)
     @rawnames = File.read(filename).split("\n")
